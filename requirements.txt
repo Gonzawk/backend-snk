@@ -1,7 +1,20 @@
+# Servidor WSGI para aplicaciones Python
 gunicorn==20.1.0
-fastapi==0.95.2
-pymongo[srv]==3.12.1
-pydantic==1.10.7
-uvicorn==0.22.0
-motor==2.5.1
-python-dotenv
+
+# Framework para construir APIs
+fastapi==0.101.1
+
+# Cliente MongoDB con soporte para SRV y compatibilidad reciente
+pymongo[srv]==4.5.0
+
+# Validación de datos y configuración
+pydantic==1.10.12
+
+# Servidor ASGI para desarrollo y despliegue
+uvicorn==0.23.2
+
+# Driver asíncrono para MongoDB
+motor==3.1.1
+
+# Soporte para variables de entorno
+python-dotenv==1.0.0
