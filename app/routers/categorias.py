@@ -1,4 +1,3 @@
-# app/routers/categorias.py
 from fastapi import APIRouter, Depends
 from app.db import get_db
 from app.schemas.categoria import Categoria

@@ -14,7 +14,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 # Incluir los routers en la aplicación
 app.include_router(categorias_router)
 app.include_router(productos_router)

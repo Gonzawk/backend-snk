@@ -1,10 +1,18 @@
+import os
+from dotenv import load_dotenv
 from motor.motor_asyncio import AsyncIOMotorClient
-from fastapi import Depends
 from pymongo.errors import PyMongoError
 
+# Cargar las variables de entorno desde el archivo .env
+load_dotenv()
 
-client = AsyncIOMotorClient("mongodb+srv://gdp43191989:Admin00@cluster0.t6n2s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-db = client["productos_catalogo"]
+# Obtener la URI de MongoDB y el nombre de la base de datos desde las variables de entorno
+mongo_uri = os.getenv("MONGO_URI")
+db_name = os.getenv("DATABASE_NAME")
+
+# Conectar a MongoDB usando la URI y nombre de base de datos
+client = AsyncIOMotorClient(mongo_uri)
+db = client[db_name]
 
 async def get_db():
     try:
@@ -12,8 +20,4 @@ async def get_db():
         yield db
     except PyMongoError as e:
         print(f"Error con la base de datos: {e}")
-    finally:
-        # Cerrar la conexión si es necesario (aunque Motor maneja el ciclo de vida)
-        pass
-
- 
+        raise e  # Lanza el error para que sea manejado más arriba en la pila de ejecución

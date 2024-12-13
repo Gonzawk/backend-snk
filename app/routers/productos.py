@@ -1,4 +1,3 @@
-# app/routers/productos.py
 from fastapi import APIRouter, Depends
 from app.db import get_db
 from app.schemas.producto import Producto
