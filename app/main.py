@@ -8,11 +8,15 @@ app = FastAPI()
 # Agregar middleware CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Permitir solicitudes desde cualquier origen (frontend, cualquier dominio)
+    allow_origins=[
+        "https://frontendd-snk.vercel.app",
+        "https://web-production-4ea6.up.railway.app",  # Asegúrate de incluir el dominio de Railway
+    ],
     allow_credentials=True,
-    allow_methods=["*"],  # Permitir todos los métodos HTTP (GET, POST, PUT, DELETE, etc.)
-    allow_headers=["*"],  # Permitir todos los encabezados
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
+
 
 # Incluir los routers en la aplicación
 app.include_router(categorias_router)
