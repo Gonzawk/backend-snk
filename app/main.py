@@ -8,10 +8,7 @@ app = FastAPI()
 # Agregar middleware CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://frontendd-snk.vercel.app",
-        "https://web-production-4ea6.up.railway.app",  # Asegúrate de incluir el dominio de Railway
-    ],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
