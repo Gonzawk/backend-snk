@@ -10,6 +10,9 @@ load_dotenv()
 mongo_uri = os.getenv("MONGO_URI")
 db_name = os.getenv("DATABASE_NAME")
 
+print(f"MONGO_URI: {mongo_uri}")
+print(f"DATABASE_NAME: {db_name}")
+
 # Conectar a MongoDB usando la URI y nombre de base de datos
 client = AsyncIOMotorClient(mongo_uri)
 db = client[db_name]
